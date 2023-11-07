@@ -1,0 +1,102 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.javamodularity.moduleplugin' version '1.8.12'
+    id 'org.beryx.jlink' version '2.25.0'
+    id("org.openjfx.javafxplugin") version "0.1.0"
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group 'ru.dverkask'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'ru.dverkask.cipher.javafx.CipherApplication'
+        )
+    }
+}
+
+shadowJar {
+    archiveBaseName.set('cipher-app')
+    archiveVersion.set('0.1.0')
+    archiveClassifier.set('')
+
+    // Include the JavaFX runtime
+    mergeServiceFiles()
+    append('module-info.class')
+    exclude 'META-INF/*.DSA'
+    exclude 'META-INF/*.RSA'
+    exclude 'META-INF/*.SF'
+
+    configurations = [project.configurations.runtimeClasspath]
+}
+
+ext {
+    junitVersion = '5.9.2'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+application {
+    mainModule = 'ru.dverkask.cipher.javafx'
+    mainClass = 'ru.dverkask.cipher.javafx.CipherApplication'
+}
+
+javafx {
+    version = '17.0.6'
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.web', 'javafx.media']
+}
+
+dependencies {
+    implementation('org.controlsfx:controlsfx:11.1.2')
+    implementation('com.dlsc.formsfx:formsfx-core:11.6.0') {
+        exclude(group: 'org.openjfx')
+    }
+    implementation('net.synedra:validatorfx:0.4.0') {
+        exclude(group: 'org.openjfx')
+    }
+    implementation('org.kordamp.ikonli:ikonli-javafx:12.3.1')
+    implementation('org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0')
+    implementation('org.jetbrains.kotlin:kotlin-stdlib:1.9.10')
+    implementation("org.openjfx:javafx-swing:21-ea+31")
+    implementation("org.openjfx:javafx-controls:21-ea+31") {
+        exclude(group: 'org.openjfx')
+    }
+    implementation('com.github.almasb:fxgl:17.2') {
+        exclude(group: 'org.openjfx')
+        exclude(group: 'org.jetbrains.kotlin')
+    }
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jlink {
+    imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    launcher {
+        name = 'app'
+    }
+}
+
+jlinkZip {
+    group = 'distribution'
+}

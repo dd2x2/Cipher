@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ru.dverkask.cipher.javafx.controllers.MonoAlphabeticCipherController">
+    <padding>
+        <Insets top="0.0" right="50.0" bottom="0.0" left="50.0" />
+    </padding>
+    <HBox spacing="100.0">
+        <ChoiceBox fx:id="choiceAlphabet">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="ruAlphabet"/>
+                    <String fx:value="enAlphabet"/>
+                    <String fx:value="Свой алфавит"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+
+        <TextField fx:id="textAlphabet" prefWidth="150" disable="true"/>
+
+        <ChoiceBox fx:id="choiceKey">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="ruKey"/>
+                    <String fx:value="enKey"/>
+                    <String fx:value="Свой ключ"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+
+        <TextField fx:id="textKey" prefWidth="150" disable="true"/>
+
+        <ChoiceBox fx:id="cipherType" prefWidth="150">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Mono"/>
+                    <String fx:value="PolySingle"/>
+                    <String fx:value="PolyMulti"/>
+                    <String fx:value="Vigenere"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+    </HBox>
+
+    <HBox spacing="10.0">
+        <TextField fx:id="encryptInputField" prefWidth="150" />
+        <Button text="Зашифровать" onAction="#encryptBtnAction" />
+        <Button text="Выберите .txt" onAction="#selectEncryptFile" />
+    </HBox>
+
+    <HBox spacing="10.0">
+        <TextField fx:id="decryptInputField" prefWidth="150" />
+        <Button text="Расшифровать" onAction="#decryptBtnAction" />
+        <Button text="Выберите .txt" onAction="#selectDecryptFile" />
+    </HBox>
+
+    <BorderPane xmlns:fx="http://javafx.com/fxml">
+        <left>
+            <VBox alignment="TOP_CENTER">
+                <Label text="Результат:"/>
+                <TextArea fx:id="resultArea" prefWidth="300" prefHeight="400" wrapText="true"/>
+            </VBox>
+        </left>
+        <right>
+            <VBox spacing="10">
+                <Label text="Английский алфавит и ключ:"/>
+                <ImageView fitWidth="480" fitHeight="54">
+                    <image>
+                        <Image url="/images/enalphabet1.jpg" />
+                    </image>
+                </ImageView>
+                <ImageView fitWidth="555" fitHeight="65">
+                    <image>
+                        <Image url="/images/enalphabet2.jpg" />
+                    </image>
+                </ImageView>
+                <ImageView fitWidth="654" fitHeight="53">
+                    <image>
+                        <Image url="/images/enalphabet3.jpg" />
+                    </image>
+                </ImageView>
+                <Label text="Русский алфавит и ключ:"/>
+                <ImageView fitWidth="637" fitHeight="62">
+                    <image>
+                        <Image url="/images/rualphabet1.jpg" />
+                    </image>
+                </ImageView>
+                <ImageView fitWidth="580" fitHeight="59">
+                    <image>
+                        <Image url="/images/rualphabet2.jpg" />
+                    </image>
+                </ImageView>
+                <ImageView fitWidth="654" fitHeight="53">
+                    <image>
+                        <Image url="/images/rualphabet3.jpg" />
+                    </image>
+                </ImageView>
+            </VBox>
+        </right>
+    </BorderPane>
+    <Label fx:id="infoLabel" />
+</VBox>

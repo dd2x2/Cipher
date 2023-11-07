@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.ScrollPane?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ru.dverkask.cipher.javafx.controllers.PolySingleAlphabeticCipherController">
+    <padding>
+        <Insets top="0.0" right="50.0" bottom="0.0" left="50.0"/>
+    </padding>
+    <HBox spacing="100.0">
+        <ChoiceBox fx:id="choiceAlphabet">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="ruAlphabet"/>
+                    <String fx:value="enAlphabet"/>
+                    <String fx:value="Свой алфавит"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+
+        <TextField fx:id="textAlphabet" prefWidth="150" disable="true"/>
+
+        <ChoiceBox fx:id="choiceKey">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="ruKey"/>
+                    <String fx:value="enKey"/>
+                    <String fx:value="Свой ключ"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+
+        <TextField fx:id="textKey" prefWidth="150" disable="true"/>
+
+        <ChoiceBox fx:id="cipherType" prefWidth="150">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Mono"/>
+                    <String fx:value="PolySingle"/>
+                    <String fx:value="PolyMulti"/>
+                    <String fx:value="Vigenere"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+    </HBox>
+
+    <HBox spacing="10.0">
+        <TextField fx:id="encryptInputField" prefWidth="150"/>
+        <Button text="Зашифровать" onAction="#encryptBtnAction"/>
+        <Button text="Выберите .txt" onAction="#selectEncryptFile"/>
+    </HBox>
+
+    <HBox spacing="10.0">
+        <TextField fx:id="decryptInputField" prefWidth="150"/>
+        <Button text="Расшифровать" onAction="#decryptBtnAction"/>
+        <Button text="Выберите .txt" onAction="#selectDecryptFile"/>
+    </HBox>
+
+    <BorderPane xmlns:fx="http://javafx.com/fxml">
+        <left>
+            <VBox alignment="TOP_CENTER">
+                <Label text="Результат:"/>
+                <TextArea fx:id="resultArea" prefWidth="300" prefHeight="400" wrapText="true"/>
+            </VBox>
+        </left>
+        <right>
+            <ScrollPane fitToWidth="true" fitToHeight="true" xmlns:fx="http://javafx.com/fxml">
+                <VBox spacing="10">
+                    <Label fx:id="languageLabel1"/>
+                    <ImageView fx:id="languageImageView1"/>
+                    <ImageView fx:id="languageImageView2"/>
+                    <ImageView fx:id="languageImageView3"/>
+                    <Label fx:id="languageLabel2"/>
+                    <ImageView fx:id="languageImageView4"/>
+                    <ImageView fx:id="languageImageView5"/>
+                    <ImageView fx:id="languageImageView6"/>
+                    <Label fx:id="languageLabel3"/>
+                    <ImageView fx:id="languageImageView7"/>
+                    <ImageView fx:id="languageImageView8"/>
+                    <ImageView fx:id="languageImageView9"/>
+                </VBox>
+            </ScrollPane>
+        </right>
+    </BorderPane>
+    <Label fx:id="infoLabel"/>
+</VBox>
