@@ -7,7 +7,6 @@ import java.util.Map;
 public enum CipherEnum {
     RU_ALPHABET("абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ1234567890!@#$%^&*()`~-=+[]{}|;:'\"<,>.?/ "),
     RU_KEY("клмнопрстуфхцчшщъыьэюяабвгдеёжзийКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯАБВГДЕЁЖЗИЙ!@#$%^&*()1234567890/ .>,<\"':;|}{][+=-~`?"),
-    RU_SHUFFLED_ALPHABET("1О| цМ?фКЫФЮьтЯН=п{А[э#Дъ5;Б-кмбГ\"!в'РЭЗ&дВнЧ3+ажШзЕш2/$6Ё4)Т(у8ю.гХ~ро@ЪПи]яёСщ%йЦх9лчЙ:сеЬИЩ0>*ыУ,}Ж<Л7^`"),
     EN_ALPHABET("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()`~-=+[]{}|;:'\"<,>.?/ "),
     EN_KEY("bcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()1234567890/ .>,<\"':;|}{][+=-~`?a");
     private final String value;
