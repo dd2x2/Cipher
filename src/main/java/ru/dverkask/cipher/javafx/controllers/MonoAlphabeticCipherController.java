@@ -26,6 +26,7 @@ public class MonoAlphabeticCipherController {
     @FXML private ChoiceBox<String> cipherType;
     @FXML private void initialize() {
         initializeMonoAlphabeticCipherData();
+        textAlphabet.setDisable(false);
         CipherUIHandler.choiceCipher(cipherType);
     }
 

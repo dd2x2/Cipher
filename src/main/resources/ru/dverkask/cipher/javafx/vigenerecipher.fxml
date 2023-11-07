@@ -49,6 +49,7 @@
                     <String fx:value="PolySingle"/>
                     <String fx:value="PolyMulti"/>
                     <String fx:value="Vigenere"/>
+                    <String fx:value="SimplePermutation"/>
                 </FXCollections>
             </items>
         </ChoiceBox>
