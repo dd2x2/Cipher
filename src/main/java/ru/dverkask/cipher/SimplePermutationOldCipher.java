@@ -3,9 +3,9 @@ package ru.dverkask.cipher;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SimplePermutationCipher extends AbstractCipher{
+public class SimplePermutationOldCipher extends AbstractCipher{
     private int[] key;
-    public SimplePermutationCipher(int[] key) {
+    public SimplePermutationOldCipher(int[] key) {
         this.key = key;
     }
 

@@ -15,7 +15,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.text.Text?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ru.dverkask.cipher.javafx.controllers.SimplePermutationCipherController">
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ru.dverkask.cipher.javafx.controllers.SimplePermutationNewController">
     <padding>
         <Insets top="0.0" right="50.0" bottom="0.0" left="50.0" />
     </padding>
