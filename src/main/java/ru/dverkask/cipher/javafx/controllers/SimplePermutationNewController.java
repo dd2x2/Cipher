@@ -6,14 +6,12 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import ru.dverkask.cipher.SimplePermutationOldCipher;
+import ru.dverkask.cipher.SimplePermutationNewCipher;
 import ru.dverkask.cipher.utils.CipherUIHandler;
 import ru.dverkask.cipher.utils.SelectedFile;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 public class SimplePermutationNewController {
+    @FXML private TextField rowsCount;
     @FXML private Text permutationTable;
     @FXML private TextArea resultArea;
     @FXML private TextField textKey;
@@ -31,27 +29,28 @@ public class SimplePermutationNewController {
                 .mapToObj(Character::getNumericValue)
                 .mapToInt(i -> i)
                 .toArray();
-        SimplePermutationOldCipher simplePermutationOldCipher =
-                new SimplePermutationOldCipher(key);
+        int rowCount = Integer.parseInt(rowsCount.getText());
+        SimplePermutationNewCipher simplePermutationNewCipher =
+                new SimplePermutationNewCipher(key, rowCount);
 
         resultArea.setText(
-                simplePermutationOldCipher.encrypt(encryptInputField.getText()).replaceAll("§", "")
+                simplePermutationNewCipher.encrypt(encryptInputField.getText()).replaceAll("§", "")
         );
 
-        permutationTable.setText(Arrays.toString(key).substring(1, Arrays.toString(key).length()-1).replaceAll(",", "") + "\n" +
-                Arrays.stream(simplePermutationOldCipher.encryptionMatrix(encryptInputField.getText()))
-                        .map(row -> String.join(" ", Arrays.toString(row).substring(1, Arrays.toString(key).length()-1).replaceAll("§", "").replaceAll(",", "")))
-                        .collect(Collectors.joining("\n")));
+        permutationTable.setText(SimplePermutationNewCipher.printTranspositionTables(
+                simplePermutationNewCipher.getTranspositionTables(encryptInputField.getText()), key));
     }
     public void decryptBtnAction(ActionEvent actionEvent) {
-        SimplePermutationOldCipher simplePermutationOldCipher =
-                new SimplePermutationOldCipher(textKey.getText().chars()
-                        .mapToObj(Character::getNumericValue)
-                        .mapToInt(i -> i)
-                        .toArray());
+        int[] key = textKey.getText().chars()
+                .mapToObj(Character::getNumericValue)
+                .mapToInt(i -> i)
+                .toArray();
+        int rowCount = Integer.parseInt(rowsCount.getText());
+        SimplePermutationNewCipher simplePermutationNewCipher =
+                new SimplePermutationNewCipher(key, rowCount);
 
         resultArea.setText(
-                simplePermutationOldCipher.decrypt(decryptInputField.getText())
+                simplePermutationNewCipher.decrypt(decryptInputField.getText())
         );
     }
     public void selectEncryptFile(ActionEvent actionEvent) {

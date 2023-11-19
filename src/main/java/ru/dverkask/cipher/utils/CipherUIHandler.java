@@ -17,7 +17,7 @@ public class CipherUIHandler {
                                 case "PolySingle" -> "polysinglealphabeticcipher.fxml";
                                 case "PolyMulti" -> "polymultialphabeticcipher.fxml";
                                 case "Vigenere" -> "vigenerecipher.fxml";
-                                case "SimplePermutation" -> "simplepermutationoldcipher.fxml";
+                                case "SimplePermutation" -> "simplepermutationnewcipher.fxml";
                                 default -> throw new IllegalStateException("Неизвестное значение: " + newValue);
                             };
                             FXMLChanger.loadFxml(fxmlFile, cipherType);

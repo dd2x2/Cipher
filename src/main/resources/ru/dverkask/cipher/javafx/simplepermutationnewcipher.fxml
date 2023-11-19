@@ -23,6 +23,9 @@
         <Label text="Ключ:"/>
         <TextField fx:id="textKey" prefWidth="150"/>
 
+        <Label text="Кол-во строк:"/>
+        <TextField fx:id="rowsCount" prefWidth="150"/>
+
         <ChoiceBox fx:id="cipherType" prefWidth="150">
             <items>
                 <FXCollections fx:factory="observableArrayList">
