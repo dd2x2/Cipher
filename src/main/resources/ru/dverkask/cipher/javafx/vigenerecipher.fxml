@@ -70,7 +70,7 @@
     <BorderPane xmlns:fx="http://javafx.com/fxml">
         <left>
             <VBox alignment="TOP_CENTER">
-                <Label text="Результатеуые:"/>
+                <Label text="Результат:"/>
                 <TextArea fx:id="resultArea" prefWidth="300" prefHeight="400" wrapText="true"/>
             </VBox>
         </left>
