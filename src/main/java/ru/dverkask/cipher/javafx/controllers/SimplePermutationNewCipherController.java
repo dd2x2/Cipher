@@ -10,7 +10,7 @@ import ru.dverkask.cipher.SimplePermutationNewCipher;
 import ru.dverkask.cipher.utils.CipherUIHandler;
 import ru.dverkask.cipher.utils.SelectedFile;
 
-public class SimplePermutationNewController {
+public class SimplePermutationNewCipherController {
     @FXML private TextField rowsCount;
     @FXML private Text permutationTable;
     @FXML private TextArea resultArea;
