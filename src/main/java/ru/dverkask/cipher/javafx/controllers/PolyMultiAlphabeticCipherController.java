@@ -89,7 +89,7 @@ public class PolyMultiAlphabeticCipherController {
     }
 
     public void setKeyCharacterList(ChoiceBox<String> choiceBox) {
-        circuits = choiceBox.equals("ruAlphabet")
+        circuits = choiceBox.getValue().equals("ruAlphabet")
                 ? ruCircuits
                 : enCircuits;
 
