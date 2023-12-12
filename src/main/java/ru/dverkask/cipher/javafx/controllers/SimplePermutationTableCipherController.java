@@ -9,7 +9,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import ru.dverkask.cipher.SimplePermutationNewCipher;
 import ru.dverkask.cipher.SimplePermutationTableCipher;
 import ru.dverkask.cipher.utils.CipherUIHandler;
 import ru.dverkask.cipher.utils.SelectedFile;
@@ -74,7 +73,7 @@ public class SimplePermutationTableCipherController {
         );
 
         permutationTable.setText(simplePermutationTableCipher.buildAndPrintMultipleTranspositionTables(
-                simplePermutationTableCipher.decrypt(decryptInputField.getText())
+                simplePermutationTableCipher.decrypt(decryptInputField.getText()).replaceAll("§", "")
         ));
     }
     public void selectEncryptFile(ActionEvent actionEvent) {

@@ -33,6 +33,8 @@ public class VigenereCipherController {
         vigenereTable.setText("Таблица Виженера: " + "\n");
         vigenereTable.setStyle("-fx-font: 16 consolas");
         textKey.setDisable(false);
+
+        CipherUIHandler.choiceCipher(cipherType);
     }
 
     public void setAlphabetCharacterLists(ChoiceBox<String> choiceBox) {

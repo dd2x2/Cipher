@@ -38,6 +38,7 @@
                     <String fx:value="Vigenere"/>
                     <String fx:value="SimplePermutation"/>
                     <String fx:value="SimplePermutationTable"/>
+                    <String fx:value="Gamma"/>
                 </FXCollections>
             </items>
         </ChoiceBox>
@@ -64,7 +65,7 @@
                 </VBox>
                 <VBox spacing="10">
                     <ScrollPane fx:id="scrollPane" hbarPolicy="ALWAYS" vbarPolicy="ALWAYS" fitToWidth="true" fitToHeight="true" maxWidth="700" xmlns:fx="http://javafx.com/fxml">
-                        <Text fx:id="permutationTable" wrappingWidth="Infinity"/>
+                        <Text fx:id="permutationTable" wrappingWidth="2000"/>
                     </ScrollPane>
                 </VBox>
             </HBox>

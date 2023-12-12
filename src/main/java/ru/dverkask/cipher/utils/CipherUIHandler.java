@@ -19,6 +19,7 @@ public class CipherUIHandler {
                                 case "Vigenere" -> "vigenerecipher.fxml";
                                 case "SimplePermutation" -> "simplepermutationnewcipher.fxml";
                                 case "SimplePermutationTable" -> "simplepermutationtablecipher.fxml";
+                                case "Gamma" -> "gammacipher.fxml";
                                 default -> throw new IllegalStateException("Неизвестное значение: " + newValue);
                             };
                             FXMLChanger.loadFxml(fxmlFile, cipherType);
