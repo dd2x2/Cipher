@@ -39,6 +39,7 @@
                     <String fx:value="SimplePermutation"/>
                     <String fx:value="SimplePermutationTable"/>
                     <String fx:value="Gamma"/>
+                    <String fx:value="GOST89"/>
                 </FXCollections>
             </items>
         </ChoiceBox>

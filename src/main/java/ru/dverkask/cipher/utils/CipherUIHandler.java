@@ -20,6 +20,7 @@ public class CipherUIHandler {
                                 case "SimplePermutation" -> "simplepermutationnewcipher.fxml";
                                 case "SimplePermutationTable" -> "simplepermutationtablecipher.fxml";
                                 case "Gamma" -> "gammacipher.fxml";
+                                case "GOST89" -> "gost89.fxml";
                                 default -> throw new IllegalStateException("Неизвестное значение: " + newValue);
                             };
                             FXMLChanger.loadFxml(fxmlFile, cipherType);

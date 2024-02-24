@@ -14,7 +14,7 @@ public class SimplePermutationNewCipher extends AbstractCipher {
     public String encrypt(String text) {
         StringBuilder textBuilder = new StringBuilder(text);
         while (textBuilder.length() % (key.length * rowCount) != 0) {
-            textBuilder.append("§");
+                textBuilder.append("§");
         }
 
         text = textBuilder.toString();
@@ -67,13 +67,13 @@ public class SimplePermutationNewCipher extends AbstractCipher {
     }
 
     private static List<Integer> findSpecialSymbolIndices(String text) {
-        List<Integer> indices = new ArrayList<>();
+        List<Integer> indexes = new ArrayList<>();
         for (int i = 0; i < text.length(); i++) {
             if (text.charAt(i) == '§') {
-                indices.add(i);
+                indexes.add(i);
             }
         }
-        return indices;
+        return indexes;
     }
 
     private static String insertSpecialSymbols(String text, List<Integer> indices) {
@@ -145,7 +145,7 @@ public class SimplePermutationNewCipher extends AbstractCipher {
                 for (char[] column : table) {
                     char symbol = column[row];
                     if(symbol == '§') {
-                        result.append("''").append(" ");
+                        result.append("§").append(" ");
                     } else {
                         result.append(symbol).append(" ");
                     }

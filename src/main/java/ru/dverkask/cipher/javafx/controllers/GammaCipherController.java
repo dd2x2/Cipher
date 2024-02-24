@@ -23,7 +23,7 @@ public class GammaCipherController {
         binaryInfo.setText("Таблица Виженера: " + "\n");
         binaryInfo.setStyle("-fx-font: 16 consolas");
 
-        binaryInfo.setText("Двоично11е представление символов: " + "\n" + GammaCipher.getInfo());
+        binaryInfo.setText("Двоичное представление символов: " + "\n" + GammaCipher.getInfo());
 
         textKey.setDisable(false);
 

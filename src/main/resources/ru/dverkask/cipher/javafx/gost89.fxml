@@ -14,23 +14,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.control.ScrollPane?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="ru.dverkask.cipher.javafx.controllers.PolyMultiAlphabeticCipherController">
+<?import javafx.scene.text.Text?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ru.dverkask.cipher.javafx.controllers.GOST89Controller">
     <padding>
-        <Insets top="0.0" right="50.0" bottom="0.0" left="50.0"/>
+        <Insets top="0.0" right="50.0" bottom="0.0" left="50.0" />
     </padding>
     <HBox spacing="100.0">
-        <ChoiceBox fx:id="choiceAlphabet">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="ruAlphabet"/>
-                    <String fx:value="enAlphabet"/>
-                </FXCollections>
-            </items>
-        </ChoiceBox>
-
-        <TextField fx:id="textAlphabet" prefWidth="150" disable="true"/>
-
         <ChoiceBox fx:id="choiceKey">
             <items>
                 <FXCollections fx:factory="observableArrayList">
@@ -58,15 +47,15 @@
     </HBox>
 
     <HBox spacing="10.0">
-        <TextField fx:id="encryptInputField" prefWidth="150"/>
-        <Button text="Зашифровать" onAction="#encryptBtnAction"/>
-        <Button text="Выберите .txt" onAction="#selectEncryptFile"/>
+        <TextField fx:id="encryptInputField" prefWidth="150" />
+        <Button text="Зашифровать" onAction="#encryptBtnAction" />
+        <Button text="Выберите .txt" onAction="#selectEncryptFile" />
     </HBox>
 
     <HBox spacing="10.0">
-        <TextField fx:id="decryptInputField" prefWidth="150"/>
-        <Button text="Расшифровать" onAction="#decryptBtnAction"/>
-        <Button text="Выберите .txt" onAction="#selectDecryptFile"/>
+        <TextField fx:id="decryptInputField" prefWidth="150" />
+        <Button text="Расшифровать" onAction="#decryptBtnAction" />
+        <Button text="Выберите .txt" onAction="#selectDecryptFile" />
     </HBox>
 
     <BorderPane xmlns:fx="http://javafx.com/fxml">
@@ -77,17 +66,12 @@
             </VBox>
         </left>
         <right>
-            <ScrollPane fitToWidth="true" fitToHeight="true" maxWidth="700" xmlns:fx="http://javafx.com/fxml">
-                <VBox spacing="10">
-                    <Label fx:id="languageLabel1"/>
-                    <ImageView fx:id="languageImageView1"/>
-                    <Label fx:id="languageLabel2"/>
-                    <ImageView fx:id="languageImageView2"/>
-                    <Label fx:id="languageLabel3"/>
-                    <ImageView fx:id="languageImageView3"/>
-                </VBox>
-            </ScrollPane>
+            <VBox spacing="10">
+                <ScrollPane hbarPolicy="ALWAYS" vbarPolicy="ALWAYS" fitToWidth="true" fitToHeight="true" maxWidth="700" xmlns:fx="http://javafx.com/fxml">
+                    <Text fx:id="detailInformation" wrappingWidth="2000"/>
+                </ScrollPane>
+            </VBox>
         </right>
     </BorderPane>
-    <Label fx:id="infoLabel"/>
+    <Label fx:id="infoLabel" />
 </VBox>

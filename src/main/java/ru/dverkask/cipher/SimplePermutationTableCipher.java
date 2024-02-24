@@ -89,13 +89,13 @@ public class SimplePermutationTableCipher extends AbstractCipher {
     }
 
     private static List<Integer> findSpecialSymbolIndices(String text) {
-        List<Integer> indices = new ArrayList<>();
+        List<Integer> indexes = new ArrayList<>();
         for (int i = 0; i < text.length(); i++) {
             if (text.charAt(i) == '§') {
-                indices.add(i);
+                indexes.add(i);
             }
         }
-        return indices;
+        return indexes;
     }
 
     private static String insertSpecialSymbols(String text, List<Integer> indices) {
